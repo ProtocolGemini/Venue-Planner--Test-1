@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #0A84FF;
+  --primary-dark: #0071E3;
+  --surface: #1C1C1E;
+  --surface-light: #2C2C2E;
+  --surface-lighter: #3A3A3C;
+  --text: #FFFFFF;
+  --text-secondary: #98989F;
+  --border: rgba(255, 255, 255, 0.15);
+  --accent-gradient: linear-gradient(135deg, #0A84FF, #6366F1);
+}
+
+body {
+  @apply bg-[#000000] text-[var(--text)] antialiased;
+  font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+}
+
+.glass-panel {
+  @apply bg-[var(--surface)] backdrop-blur-xl border border-[var(--border)] shadow-lg;
+  box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.3);
+}
+
+.neon-glow {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+.input-field {
+  @apply w-full px-3 py-2 bg-[var(--surface-light)] rounded-xl 
+    border border-[var(--border)] text-[var(--text)]
+    focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)]
+    transition-all duration-200 placeholder:text-[var(--text-secondary)];
+}
+
+.btn-primary {
+  @apply px-4 py-2 bg-[var(--primary)] hover:bg-[var(--primary-dark)] 
+    text-white rounded-xl transition-colors duration-200
+    flex items-center justify-center gap-2 font-medium;
+}
+
+.btn-secondary {
+  @apply px-4 py-2 bg-[var(--surface-light)] hover:bg-[var(--surface-lighter)]
+    text-[var(--text)] rounded-xl border border-[var(--border)]
+    transition-colors duration-200 flex items-center justify-center gap-2;
+}
+
+.card {
+  @apply p-4 rounded-xl bg-[var(--surface)] border border-[var(--border)]
+    hover:bg-[var(--surface-light)] transition-colors duration-200;
+}
